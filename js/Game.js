@@ -5,20 +5,39 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = [];
-        this.activePhrase = null;
+        this.phrases = [new Phrase('Say goodnight to the bad guy'), 
+                        new Phrase('With great power comes great responsibility'), 
+                        new Phrase('Here is looking at you kid'), 
+                        new Phrase('Dont think just do'), 
+                        new Phrase('Be like water my friends')];
+        this.activePhrase = this.getRandomPhrase();
     }
+
+    /**
+     * Selects random phrase from phrases property
+     * @returns {Object} phrase object chosen to be used
+     */
+    getRandomPhrase() {
+        const randomIndex = Math.floor(Math.random() * this.phrases.length);
+        return this.phrases[randomIndex];
+    }
+
+
+
+
+}
+
+
+
 /*
+    
     startGame() {
         //"hides the starts screen overlay"
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
     }
 
-    getRandomPhrase() {
-        const randomIndex = Math.floor(Math.random() * this.phrases.length);
-        return this.phrases[randomIndex]
-    }
+
 
     handleInteraction() {
         "e.target.letter".disable = true;

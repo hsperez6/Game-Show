@@ -2,14 +2,59 @@
  * Project 4 - OOP Game App
  * app.js */
 
-class Game {
-    constructor() {
 
-    }
-}
 
-const resetBtn = document.getElementById("btn__reset");
+const game = new Game();
 
+game.activePhrase.addPhraseToDisplay();
+
+
+
+
+// const randomPhrase =game.getRandomPhrase();
+// const phrase = new Phrase(randomPhrase.phrase);
+// phrase.addPhraseToDisplay();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//console.log(game.getRandomPhrase().addPhraseToDisplay());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//const resetBtn = document.getElementById("btn__reset");
+
+
+/*
 resetBtn.addEventListener('click', (e) => {
     new Game();
     startGame();
@@ -22,3 +67,4 @@ for(let i=0; i<keys.length; i++) {
         game.handleInteraction()
     });
 }
+*/
