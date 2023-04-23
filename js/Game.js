@@ -22,7 +22,16 @@ class Game {
         return this.phrases[randomIndex];
     }
 
+    /**
+     * Begins game by selecting a random phrase and displaying it to user
+     */
 
+    startGame() {
+        const overlay = document.querySelector('#overlay');
+        overlay.style.display = 'none';
+        this.activePhrase.addPhraseToDisplay();
+
+    }
 
 
 }

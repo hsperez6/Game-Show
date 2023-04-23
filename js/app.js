@@ -4,11 +4,28 @@
 
 
 
-const game = new Game();
+let game;
 
-game.activePhrase.addPhraseToDisplay();
+const startBtn = document.querySelector('#btn__reset');
 
+startBtn.addEventListener('click', (e) => {
+    game = new Game();
+    game.startGame();
+    console.log(game.activePhrase);
+});
 
+const keyboard = document.querySelector('#qwerty');
+
+let clickedLetter;
+
+keyboard.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
+        clickedLetter = e.target.textContent;
+    }
+
+    game.activePhrase.checkLetter();
+    
+})
 
 
 // const randomPhrase =game.getRandomPhrase();

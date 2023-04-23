@@ -12,16 +12,10 @@ class Phrase {
      * Display phrase on gameboard
      */
     addPhraseToDisplay() {
-        // const div = document.createElement('div');
-        // div.id = 'phrase';
-        // div.className = 'section';
-        // const ul = document.createElement('ul')
-        // div.appendChild(ul);
-
         const div = document.querySelector('#phrase');
-        const ul = div.firstChild;
+        const ul = div.firstElementChild;
 
-        const string = game.activePhrase;
+        const string = game.activePhrase.phrase;
         const array = string.split('');
         for(let i=0; i<array.length ; i++) {
             if (array[i] !== ' ') {
@@ -39,36 +33,16 @@ class Phrase {
     }
 
     /**
-     *  list.insertAdjacentHTML(
-        'afterbegin',
-        `<li>${input.value}</li>`  
-        );
-
-     *  <div id="phrase" class="section">
-            <ul>
-                <li class="hide letter h">h</li>
-                <li class="hide letter o">o</li>
-                <li class="hide letter w">w</li>
-                <li class="space"> </li>
-                <li class="hide letter a">a</li>
-                <li class="hide letter r">r</li>
-                <li class="hide letter e">e</li>
-                <li class="space"> </li>
-                <li class="hide letter y">y</li>
-                <li class="hide letter o">o</li>
-                <li class="hide letter u">u</li>
-            </ul>
-        </div>
+     * Checks if passed letter is in phrase
+     * @param (string) letter = letter to check
      */
-
-
-
-
-
-
-
-
     checkLetter() {
+        const string = game.activePhrase.phrase;
+        if(string.includes(clickedLetter)) {
+            this.showMatchedLetter();
+        } else {
+            game.removeLife();
+        }
 
     }
 
