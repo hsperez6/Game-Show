@@ -12,6 +12,7 @@ startBtn.addEventListener('click', (e) => {
     game = new Game();
     game.startGame();
     console.log(game.activePhrase);
+
 });
 
 const keyboard = document.querySelector('#qwerty');
@@ -24,9 +25,9 @@ keyboard.addEventListener('click', (e) => {
     }
 
     game.activePhrase.checkLetter();
-    
-})
 
+
+})
 
 // const randomPhrase =game.getRandomPhrase();
 // const phrase = new Phrase(randomPhrase.phrase);

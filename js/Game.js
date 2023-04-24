@@ -30,25 +30,53 @@ class Game {
         const overlay = document.querySelector('#overlay');
         overlay.style.display = 'none';
         this.activePhrase.addPhraseToDisplay();
-
     }
+
+    /**
+     * checks to see if the player has revealed all of the letters in the active phrase
+     */
+    checkForWin() {
+        const hiddenLetters = document.querySelectorAll('.hide');
+        if (hiddenLetters.length === 0) {
+            alert('YOU WIN!');
+        }
+    }
+
+    /**
+     * 
+     */
+    removeLife() {
+        const hearts = document.querySelectorAll('img[src="images/liveHeart.png"]');
+        hearts[0].src = "images/lostHeart.png"
+        this.missed += 1
+    }
+
+
+    /**
+     * 
+     */
+    gameOver() {
+        "display original start screen overlay"
+        if ("win") {
+            "update overlay h1 element with friendly win message"
+        } else "lost" {
+            "update overlay h1 element with loss message"
+        }
+
+        "replace overlay's `start` CSS class with `win` or `lose` CSS class"
+    }
+    // if (this.missed === 5) {
+        //     gameOver();
+        // }
+
 
 
 }
 
 
 
-/*
-    
-    startGame() {
-        //"hides the starts screen overlay"
-        this.activePhrase = this.getRandomPhrase();
-        this.activePhrase.addPhraseToDisplay();
-    }
 
-
-
-    handleInteraction() {
+/*  handleInteraction() {
         "e.target.letter".disable = true;
         
         if("phrase does not include guessed letter") {
@@ -65,29 +93,11 @@ class Game {
         }
     }
 
-    removeLife() {
-        "replace 'liveHeart.png' with 'lostHeart.png' in images folder"
-        this.missed += 1
+    
 
-        if (this.missed === 5) {
-            gameOver();
-        }
-    }
+    
 
-    checkForWin() {
-        "checks to see if the player has revealed all of the letters in the active phrase"
-    }
-
-    gameOver() {
-        "display original start screen overlay"
-        if ("win") {
-            "update overlay h1 element with friendly win message"
-        } else "lost" {
-            "update overlay h1 element with loss message"
-        }
-
-        "replace overlay's `start` CSS class with `win` or `lose` CSS class"
-    }
+    
 
 }
 */

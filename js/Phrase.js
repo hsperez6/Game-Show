@@ -43,11 +43,18 @@ class Phrase {
         } else {
             game.removeLife();
         }
+        game.checkForWin();
 
     }
 
     showMatchedLetter() {
-
+        const letterArray = document.querySelectorAll('.letter');
+        letterArray.forEach(letter => {
+            if (letter.textContent === clickedLetter) {
+                letter.classList.remove('hide');
+                letter.classList.add('show')
+            }
+        })
     }
 
 }
