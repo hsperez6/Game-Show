@@ -22,9 +22,9 @@ let clickedLetter;
 keyboard.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
         clickedLetter = e.target.textContent;
+        game.handleInteraction();
     }
-
-    game.activePhrase.checkLetter();
+    //game.activePhrase.checkLetter();
 
 
 })

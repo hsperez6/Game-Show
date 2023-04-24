@@ -34,23 +34,24 @@ class Phrase {
 
     /**
      * Checks if passed letter is in phrase
-     * @param (string) letter = letter to check
+     * @param (string) letter = Letter to check
      */
-    checkLetter() {
-        const string = game.activePhrase.phrase;
-        if(string.includes(clickedLetter)) {
-            this.showMatchedLetter();
+    checkLetter(param) {
+        if(game.activePhrase.phrase.includes(param)) {
+            return true;
         } else {
-            game.removeLife();
+            return false;
         }
-        game.checkForWin();
-
     }
 
-    showMatchedLetter() {
+    /**
+     * Displays passed letter on screen after a match is found
+     * @param (string) letter - Letter to display 
+     */
+    showMatchedLetter(param) {
         const letterArray = document.querySelectorAll('.letter');
         letterArray.forEach(letter => {
-            if (letter.textContent === clickedLetter) {
+            if (letter.textContent === param) {
                 letter.classList.remove('hide');
                 letter.classList.add('show')
             }

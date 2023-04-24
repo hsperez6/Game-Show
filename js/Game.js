@@ -32,13 +32,26 @@ class Game {
         this.activePhrase.addPhraseToDisplay();
     }
 
+
+    handleInteraction() {
+        let checked = this.activePhrase.checkLetter(clickedLetter);
+        if (checked) {
+            this.activePhrase.showMatchedLetter(clickedLetter);
+        } else {
+            this.removeLife();
+        }
+    }
+
+
     /**
      * checks to see if the player has revealed all of the letters in the active phrase
      */
     checkForWin() {
         const hiddenLetters = document.querySelectorAll('.hide');
         if (hiddenLetters.length === 0) {
-            alert('YOU WIN!');
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -47,8 +60,11 @@ class Game {
      */
     removeLife() {
         const hearts = document.querySelectorAll('img[src="images/liveHeart.png"]');
-        hearts[0].src = "images/lostHeart.png"
-        this.missed += 1
+        hearts[0].src = "images/lostHeart.png";
+        this.missed += 1;
+        if (this.missed === 5) {
+            this.gameOver();
+        };
     }
 
 
@@ -56,18 +72,24 @@ class Game {
      * 
      */
     gameOver() {
-        "display original start screen overlay"
-        if ("win") {
-            "update overlay h1 element with friendly win message"
-        } else "lost" {
-            "update overlay h1 element with loss message"
+        const overlay = document.querySelector('#overlay');
+        overlay.style.display = 'block';
+        const hiddenLetters = document.querySelectorAll('.hide');
+        const gameOverMessage = document.querySelector('#game-over-message')
+
+        if (hiddenLetters.length === 0) {
+            gameOverMessage.textContent = 'Congratulations! You Win!';
+            overlay.classList.remove('start');
+            overlay.classList.add('win');
+        } else if (this.missed === 5) {
+            gameOverMessage.textContent = 'Out of lives. Game Over :('
+            overlay.classList.remove('start');
+            overlay.classList.add('lose');
         }
 
-        "replace overlay's `start` CSS class with `win` or `lose` CSS class"
     }
-    // if (this.missed === 5) {
-        //     gameOver();
-        // }
+   
+    
 
 
 
