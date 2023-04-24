@@ -21,17 +21,13 @@ let clickedLetter;
 
 keyboard.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
-        clickedLetter = e.target.textContent;
-        game.handleInteraction();
+        clickedLetter = e.target;
+        game.handleInteraction(clickedLetter);
     }
-    //game.activePhrase.checkLetter();
 
 
 })
 
-// const randomPhrase =game.getRandomPhrase();
-// const phrase = new Phrase(randomPhrase.phrase);
-// phrase.addPhraseToDisplay();
 
 
 

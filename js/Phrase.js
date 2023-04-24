@@ -9,7 +9,7 @@ class Phrase {
     }
 
     /**
-     * Display phrase on gameboard
+     * Displays phrase on gameboard
      */
     addPhraseToDisplay() {
         const div = document.querySelector('#phrase');
@@ -35,9 +35,10 @@ class Phrase {
     /**
      * Checks if passed letter is in phrase
      * @param (string) letter = Letter to check
+     * @returns (boolean) match or not
      */
     checkLetter(param) {
-        if(game.activePhrase.phrase.includes(param)) {
+        if(game.activePhrase.phrase.includes(param.textContent)) {
             return true;
         } else {
             return false;
@@ -51,7 +52,7 @@ class Phrase {
     showMatchedLetter(param) {
         const letterArray = document.querySelectorAll('.letter');
         letterArray.forEach(letter => {
-            if (letter.textContent === param) {
+            if (letter.textContent === param.textContent) {
                 letter.classList.remove('hide');
                 letter.classList.add('show')
             }
