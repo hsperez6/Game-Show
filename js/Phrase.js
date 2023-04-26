@@ -8,6 +8,7 @@ class Phrase {
         this.phrase = phrase.toLowerCase();
     }
 
+
     /**
      * Displays phrase on gameboard
      */
@@ -30,7 +31,16 @@ class Phrase {
                     );
             }
         }
+
+        /**
+         * Replaces blank box with Mario question block
+         */
+        const hiddenLetters = document.querySelectorAll('.hide');
+        for(let i=0; i<hiddenLetters.length; i++) {
+            hiddenLetters[i].style.backgroundImage = "url('images/marioblock2.png')";
+        }
     }
+
 
     /**
      * Checks if passed letter is in phrase
@@ -45,18 +55,20 @@ class Phrase {
         }
     }
 
+
     /**
      * Displays passed letter on screen after a match is found
      * @param (string) letter - Letter to display 
      */
     showMatchedLetter(param) {
-        const letterArray = document.querySelectorAll('.letter');
+        const letterArray = document.querySelectorAll('.hide');
         letterArray.forEach(letter => {
             if (letter.textContent === param.textContent) {
                 letter.classList.remove('hide');
-                letter.classList.add('show')
+                letter.classList.add('show');
+                letter.style.backgroundImage = '';
             }
         })
     }
-
+    
 }

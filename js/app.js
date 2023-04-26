@@ -6,79 +6,47 @@
 
 let game;
 
-const startBtn = document.querySelector('#btn__reset');
+/**
+ * Sets the overlay background to Mario theme
+ */
+const start = document.querySelector('.start');
+start.style.backgroundImage = "url('images/start.png')";
+document.querySelector('.title').style.color = '#e75e10';
 
+
+/**
+ * Starts game and sets game background to Mario theme
+ */
+const startBtn = document.querySelector('#btn__reset');
 startBtn.addEventListener('click', (e) => {
     game = new Game();
     game.startGame();
-    console.log(game.activePhrase);
-
+    const body = document.querySelector('body');
+    body.style.backgroundImage = "url('images/mario2.png')";
+    console.log(game.activePhrase.phrase)
 });
 
 const keyboard = document.querySelector('#qwerty');
-
 let clickedLetter;
 
+/**
+ * Handles online keyboard mouse clicks
+ */
 keyboard.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
         clickedLetter = e.target;
         game.handleInteraction(clickedLetter);
     }
-
-
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//console.log(game.getRandomPhrase().addPhraseToDisplay());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//const resetBtn = document.getElementById("btn__reset");
-
-
-/*
-resetBtn.addEventListener('click', (e) => {
-    new Game();
-    startGame();
+/**
+ * Handles keyboard use
+ */
+document.addEventListener('keydown', (e) => { 
+    const allKeys = document.querySelectorAll('.key');
+    for(let i=0; i<allKeys.length; i++ ) {
+        if (allKeys[i].textContent === e.key) {
+            clickedLetter = allKeys[i];
+        }
+    }
+    game.handleInteraction(clickedLetter);
 });
-
-const keys = document.querySelectorAll('.key');
-
-for(let i=0; i<keys.length; i++) {
-    keys[i].addEventListener('click', (e) => {
-        game.handleInteraction()
-    });
-}
-*/
