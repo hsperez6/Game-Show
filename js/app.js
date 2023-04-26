@@ -11,7 +11,9 @@ let game;
  */
 const start = document.querySelector('.start');
 start.style.backgroundImage = "url('images/start.png')";
-document.querySelector('.title').style.color = '#e75e10';
+const title = document.querySelector('.title');
+title.style.color = '#e75e10';
+title.style.textShadow = '4px 4px black';
 
 
 /**
@@ -23,7 +25,6 @@ startBtn.addEventListener('click', (e) => {
     game.startGame();
     const body = document.querySelector('body');
     body.style.backgroundImage = "url('images/mario2.png')";
-    console.log(game.activePhrase.phrase)
 });
 
 const keyboard = document.querySelector('#qwerty');
@@ -50,3 +51,13 @@ document.addEventListener('keydown', (e) => {
     }
     game.handleInteraction(clickedLetter);
 });
+
+/**
+ * Adds Mario dies gif to game over overlay but only displays if player lost
+ */
+const overgif = document.createElement('img');
+overgif.src = "images/gameover.gif";
+overgif.style.height = '200px';
+overgif.style.width = '200px';
+startBtn.after(overgif);
+overgif.style.visibility = 'hidden';

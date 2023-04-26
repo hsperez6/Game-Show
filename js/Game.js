@@ -110,26 +110,21 @@ class Game {
         overlay.setAttribute('align', 'center');
         overlay.style.display = 'block';
         const gameOverMessage = document.querySelector('#game-over-message');
-
+        
         if (param) {
             gameOverMessage.textContent = 'Congratulations! You Win!';
             overlay.className = '';
             overlay.classList.add('win');
-            overlay.style.backgroundImage = "url('images/win.gif')";    
+            overlay.style.backgroundImage = "url('images/win.gif')";
+            overgif.style.visibility = 'hidden';
             this.gameReset();
         } else if (!param) {
             gameOverMessage.textContent = 'Out of lives';
             overlay.className = '';
             overlay.classList.add('lose');
-            overlay.style.backgroundImage = "url('images/gameover-background.png')";           
-            const overgif = document.createElement('img');
-            const linebreak = document.createElement('br');
-            overgif.src = "images/gameover.gif";
-            overgif.style.height = '200px';
-            overgif.style.width = '200px';
-            gameOverMessage.after(overgif);
-            overgif.after(linebreak);
-            this.gameReset();
+            overlay.style.backgroundImage = "url('images/gameover-background.png')";      
+            overgif.style.visibility = 'visible';         
+            this.gameReset();            
         }
     }  
 
