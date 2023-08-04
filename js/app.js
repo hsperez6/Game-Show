@@ -22,7 +22,7 @@ startBtn.addEventListener('click', (e) => {
     game = new Game();
     game.startGame();
     const body = document.querySelector('body');
-    body.style.backgroundImage = "url('images/mario2.png')";
+    body.style.backgroundImage = "url('images/mario2.PNG')";
 });
 
 const keyboard = document.querySelector('#qwerty');
